@@ -45,6 +45,9 @@ public class PetService {
                     "No found pet by id=%s"
                             .formatted(id));
         }
+
+        userService.findById(petToUpdate.getUserId());
+
         var updatedPet = petMap.get(id);
         if (!Objects.equals(updatedPet.getUserId(), petToUpdate.getUserId())){
             userService.removePet(updatedPet.getId());
